@@ -1,8 +1,6 @@
 package com.jmunoz.footballresource.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,5 +11,10 @@ public class Football {
     @GetMapping("/teams")
     public List<String> getTeams() {
         return List.of("Argentina", "Australia", "Brazil");
+    }
+
+    @PostMapping("/teams")
+    public String addTeam(@RequestBody String teamName) {
+        return teamName + " added";
     }
 }

@@ -28,6 +28,8 @@ Uso Spring Initializr: `https://start.spring.io/`
   - Tenemos que obtener un token usando el `Authorization Server` (ver como obtenerlo en su README.md)
   - Una vez obtenido el token, lo copiamos y lo informamos en nuestro endpoint del Resource Server
     - ![alt Postman_Config](./images/02-Postman-Config.png)
+  - Tener en cuenta que hay dos scopes, uno de solo lectura y otro tipo admin (para el POST)
+    - El auth server puede mandar solo uno de los dos o los dos. Tenerlo en cuenta
 
 ## Configuración de un resource server
 
@@ -60,3 +62,13 @@ Si vemos nuestro JWT decodificado, veremos que hay una parte `aud` que será ace
 Por tanto, con las properties `audiences` y `issuer-uri` nos aseguramos que nuestro JWT solo funciona para lo que queremos.
 
 ![alt Audiences-aud](./images/03-Audiences-Aud.png)
+
+## Protegiendo un API RESTful usando OAuth2 con diferentes scopes
+
+Ver el proyecto de authorization server, el punto con el mismo título. Ahí indicamos que se crean distintos `scopes`, uno de solo lectura y otro para el administrador.
+
+Aquí vamos a crear un endpoint `POST` que requiere acceso tipo admin, en nuestro controlador `Football.java`.
+
+También tenemos que poder gestionar los `scopes`. Creamos una carpeta `config` y dentro un archivo `SecurityConfig.java`.
+
+El bean `SecurityFilterChain` es un componente que se usa para configurar los filtros de seguridad, que interceptan y procesan peticiones HTTP entrantes.

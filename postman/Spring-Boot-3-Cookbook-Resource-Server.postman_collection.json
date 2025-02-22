@@ -7,11 +7,16 @@
 	},
 	"item": [
 		{
-			"name": "List of Teams",
+			"name": "List of Teams - Scope football:read",
 			"request": {
 				"auth": {
 					"type": "oauth2",
 					"oauth2": [
+						{
+							"key": "scope",
+							"value": "football:read",
+							"type": "string"
+						},
 						{
 							"key": "client_authentication",
 							"value": "body",
@@ -25,11 +30,6 @@
 						{
 							"key": "addTokenTo",
 							"value": "header",
-							"type": "string"
-						},
-						{
-							"key": "scope",
-							"value": "football:read",
 							"type": "string"
 						},
 						{
@@ -61,6 +61,85 @@
 				},
 				"method": "GET",
 				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/football/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"football",
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Team - Scope football:admin",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "scope",
+							"value": "football:read football:admin",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{client}}",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{secret}}",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:9000/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "new",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Spain",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:8080/football/teams",
 					"protocol": "http",
