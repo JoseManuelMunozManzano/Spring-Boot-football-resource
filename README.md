@@ -72,3 +72,13 @@ Aquí vamos a crear un endpoint `POST` que requiere acceso tipo admin, en nuestr
 También tenemos que poder gestionar los `scopes`. Creamos una carpeta `config` y dentro un archivo `SecurityConfig.java`.
 
 El bean `SecurityFilterChain` es un componente que se usa para configurar los filtros de seguridad, que interceptan y procesan peticiones HTTP entrantes.
+
+## Chequeando roles o claims
+
+Se pueden realizar más validaciones sobre JWT. Una muy común de validación de peticiones es chequeando sus roles.
+
+Modificamos nuestro archivo `SecurityConfig.java` para añadir un nuevo bean `SecurityFilterChain` para que solo usuarios con el rol ADMIN pueda eralizar peticiones POST.
+
+También podemos realizar más validaciones a nuestros token, por ejemplo, validar que un `claim` dado está presente en nuestro JWT.
+
+Creamos para esto una nueva clase `CustomClaimValidator.java` en nuestra carpeta `config`.
