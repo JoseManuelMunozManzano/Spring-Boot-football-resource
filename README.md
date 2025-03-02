@@ -82,3 +82,12 @@ Modificamos nuestro archivo `SecurityConfig.java` para añadir un nuevo bean `Se
 También podemos realizar más validaciones a nuestros token, por ejemplo, validar que un `claim` dado está presente en nuestro JWT.
 
 Creamos para esto una nueva clase `CustomClaimValidator.java` en nuestra carpeta `config`.
+
+## Configurando una aplicación MVC con autenticación OpenId
+
+Para este proyeto, ver también el proyecto `https://github.com/JoseManuelMunozManzano/footballui-openid-authentication`.
+
+Tenemos que permitir a la aplicación web `footballui` usar el API RESTful, así que tenemos que aceptar su audiencia.
+
+Eso se hace añadiendo en `application.yml`, a la propiedad `audiences` la audience indicada en el proyecto `footballui`,
+
